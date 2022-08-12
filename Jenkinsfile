@@ -27,6 +27,7 @@ pipeline {
         stage ('check version') {
             steps {
                 bat 'java -version'
+                bat 'dotnet --version'
 //                bat 'mvn -version'
             }
         }
