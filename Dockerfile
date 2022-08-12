@@ -1,26 +1,18 @@
-# https://hub.docker.com/_/microsoft-dotnet
-FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
-FROM openjdk:11
-#WORKDIR C:/Users/Administrator/code/dotnetcode/ConsoleApp
-SHELL ["cmd", "/S", "/C"]
+FROM mcr.microsoft.com/dotnet/sdk:6.0-windowsservercore-ltsc2022 AS build
+WORKDIR /source
 
-#ADD https://aka.ms/vs/16/release/vs_buildtools.exe C:\tools\fordotnet\vs_buildtools.exe
-#ADD https://dist.nuget.org/win-x86-commandline/v5.8.1/nuget.exe C:\tools\fordotnet\Nuget\nuget.exe
 # copy csproj and restore as distinct layers
 COPY *.sln .
 COPY ConsoleApp/*.csproj ./ConsoleApp/
-COPY UnitTestProject/*.csproj ./ConsoleApp/
-RUN java -version
-Run dotnet --version
-RUN dotnet restore
+RUN dotnet restore -r win-x64
 
 # copy everything else and build app
 COPY ConsoleApp/. ./ConsoleApp/
 WORKDIR /source/ConsoleApp
-RUN dotnet publish -c release -o /app --no-restore
+RUN dotnet publish -c release -o /app -r win-x64 --self-contained false --no-restore
 
 # final stage/image
-FROM mcr.microsoft.com/dotnet/aspnet:6.0
+FROM mcr.microsoft.com/dotnet/aspnet:6.0-windowsservercore-ltsc2022 AS runtime
 WORKDIR /app
 COPY --from=build /app ./
-ENTRYPOINT ["dotnet", "ConsoleApp.dll"]
+ENTRYPOINT ["ConsoleApp"]
