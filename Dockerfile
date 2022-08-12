@@ -8,6 +8,7 @@ SHELL ["cmd", "/S", "/C"]
 # copy csproj and restore as distinct layers
 COPY *.sln .
 COPY ConsoleApp/*.csproj ./ConsoleApp/
+COPY UnitTestProject/*.csproj ./ConsoleApp/
 RUN dotnet restore
 
 # copy everything else and build app
