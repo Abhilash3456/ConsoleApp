@@ -9,6 +9,8 @@ SHELL ["cmd", "/S", "/C"]
 COPY *.sln .
 COPY ConsoleApp/*.csproj ./ConsoleApp/
 COPY UnitTestProject/*.csproj ./ConsoleApp/
+RUN java -version
+Run dotnet --version
 RUN dotnet restore
 
 # copy everything else and build app
