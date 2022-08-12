@@ -5,7 +5,7 @@ WORKDIR /source
 # copy csproj and restore as distinct layers
 COPY *.sln .
 COPY ConsoleApp/*.csproj ./ConsoleApp/
-RUN dotnet restore C:/Users/Administrator/AppData/Local/Jenkins/.jenkins/workspace/pipelinecodescan/ConsoleApp/ConsoleApp.sln
+RUN dotnet restore C:/Users/Administrator/AppData/Local/Jenkins/.jenkins/workspace/checking docker file/ConsoleApp/ConsoleApp.sln
 
 # copy everything else and build app
 COPY ConsoleApp/. ./ConsoleApp/
