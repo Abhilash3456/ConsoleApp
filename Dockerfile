@@ -1,5 +1,6 @@
 # https://hub.docker.com/_/microsoft-dotnet
 FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
+FROM openjdk:8
 #WORKDIR C:/Users/Administrator/code/dotnetcode/ConsoleApp
 SHELL ["cmd", "/S", "/C"]
 
