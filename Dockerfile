@@ -11,11 +11,11 @@ RUN dotnet restore
 # copy everything else and build app
 COPY ConsoleApp/. ./ConsoleApp/
 WORKDIR /source/ConsoleApp
-RUN dotnet publish -c release -o /app --no-restore
+RUN dotnet publish -c release -o /ConsoleApp --no-restore
 
 # final stage/image
 FROM mcr.microsoft.com/dotnet/aspnet:6.0
-WORKDIR /app
-COPY --from=build /app ./
+WORKDIR /ConsoleApp
+COPY --from=build /ConsoleApp ./
 ENTRYPOINT ["dotnet", "ConsoleApp.dll"]
 ENTRYPOINT ["dotnet", "UnitTestProject.dll"]
