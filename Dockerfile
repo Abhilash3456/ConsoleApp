@@ -11,6 +11,7 @@ RUN dotnet restore
 # copy everything else and build app
 COPY ConsoleApp/. ./ConsoleApp/
 WORKDIR /source/ConsoleApp
+CMD ["C:\\Program Files (x86)\\MSBuild\\12.0\\Bin\\msbuild.exe"] 
 RUN dotnet publish -c release -o /ConsoleApp --no-restore
 
 # final stage/image
