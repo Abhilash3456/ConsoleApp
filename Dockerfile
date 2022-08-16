@@ -12,6 +12,8 @@ RUN dotnet restore
 COPY ConsoleApp/. ./ConsoleApp/
 WORKDIR /source/ConsoleApp
 CMD ["C:\\Program Files (x86)\\MSBuild\\12.0\\Bin\\msbuild.exe"] 
+
+#want to check the below mentioned steps for checking the publish using docker
 RUN dotnet publish -c release -o /ConsoleApp --no-restore
 
 # final stage/image
