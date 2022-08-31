@@ -20,14 +20,15 @@ pipeline {
             steps {
                 bat 'echo %PATH%'
                 bat 'dotnet restore C:/Users/Administrator/AppData/Local/Jenkins/.jenkins/workspace/sample/ConsoleApp/ConsoleApp.sln'
-                bat 'dotnet build --configuration Release C:/Users/Administrator/AppData/Local/Jenkins/.jenkins/workspace/pipelinecodescan/ConsoleApp/ConsoleApp.sln'
-                bat 'dotnet publish C:/Users/Administrator/AppData/Local/Jenkins/.jenkins/workspace/pipelinecodescan/ConsoleApp/ConsoleApp.sln'
+                bat 'dotnet build --configuration Release C:/Users/Administrator/AppData/Local/Jenkins/.jenkins/workspace/sample/ConsoleApp/ConsoleApp.sln'
+                bat 'dotnet publish C:/Users/Administrator/AppData/Local/Jenkins/.jenkins/workspace/sample/ConsoleApp/ConsoleApp.sln'
             }
         }
         stage ('check version') {
             steps {
                 bat 'java -version'
                 bat 'dotnet --version'
+                bat 'docker build .'
 //                bat 'mvn -version'
             }
         }
