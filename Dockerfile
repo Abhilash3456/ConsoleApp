@@ -29,5 +29,5 @@ ENTRYPOINT ["dotnet", "ConsoleApp.dll"]
 ENTRYPOINT ["dotnet", "UnitTestProject.dll"]
 FROM mcr.microsoft.com/dotnet/sdk:6.0
 RUN dir
-RUN cd Program Files
+RUN cd C:\Users\Administrator\AppData\Local\Jenkins\.jenkins\workspace\sample 1
 RUN dir
