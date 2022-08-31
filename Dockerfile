@@ -12,7 +12,7 @@ RUN dotnet restore
 #COPY ConsoleApp/ConsoleApp.csproj ./ConsoleApp/
 #COPY UnitTestProject/UnitTestProject.csproj ./UnitTestProject/
 #RUN dotnet restore
-
+RUN dotnet publish ConsoleApp/ConsoleApp.csproj -c Release -o /ConsoleApp/app
 # copy everything else and build app
 #COPY ConsoleApp/. ./ConsoleApp/
 #WORKDIR /source/ConsoleApp
@@ -29,7 +29,7 @@ ENTRYPOINT ["dotnet", "ConsoleApp.dll"]
 ENTRYPOINT ["dotnet", "UnitTestProject.dll"]
 FROM mcr.microsoft.com/dotnet/sdk:6.0
 RUN dir
-RUN dotnet publish ConsoleApp/ConsoleApp.csproj -c Release -o /ConsoleApp/app
+
 Run dotnet publish ConsoleApp.sln
 RUN cd C:/Users/Administrator/AppData/Local/Jenkins/.jenkins/workspace/sample 1
 RUN dir
