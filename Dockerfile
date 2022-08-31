@@ -1,6 +1,10 @@
 # https://hub.docker.com/_/microsoft-dotnet
 FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
 WORKDIR /source
+COPY ConsoleApp.sln .
+COPY ConsoleApp/ConsoleApp.csproj ./ConsoleApp/
+COPY UnitTestProject/UnitTestProject.csproj ./UnitTestProject/
+RUN dotnet restore
 
 # copy csproj and restore as distinct layers
 COPY ConsoleApp.sln .
