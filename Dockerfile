@@ -24,6 +24,6 @@ RUN dotnet restore
 # final stage/image
 FROM mcr.microsoft.com/dotnet/aspnet:6.0
 WORKDIR /ConsoleApp
-COPY --from=build /ConsoleApp ./
+COPY --from=build /source ./
 ENTRYPOINT ["dotnet", "ConsoleApp.dll"]
 ENTRYPOINT ["dotnet", "UnitTestProject.dll"]
