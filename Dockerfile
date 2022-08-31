@@ -7,16 +7,16 @@ COPY UnitTestProject/UnitTestProject.csproj ./UnitTestProject/
 RUN dotnet restore
 
 # copy csproj and restore as distinct layers
-COPY ConsoleApp.sln .
-COPY ConsoleApp/ConsoleApp.csproj ./ConsoleApp/
-COPY UnitTestProject/UnitTestProject.csproj ./UnitTestProject/
-RUN dotnet restore
+#COPY ConsoleApp.sln .
+#COPY ConsoleApp/ConsoleApp.csproj ./ConsoleApp/
+#COPY UnitTestProject/UnitTestProject.csproj ./UnitTestProject/
+#RUN dotnet restore
 
 # copy everything else and build app
 COPY ConsoleApp/. ./ConsoleApp/
 WORKDIR /source/ConsoleApp
 CMD ["C:\\Program Files (x86)\\MSBuild\\12.0\\Bin\\msbuild.exe"] 
-
+RUN dotnet publish -c Release -o out
 #want to check the below mentioned steps for checking the publish using docker
 RUN dotnet publish -c release -o /ConsoleApp --no-restore
 
