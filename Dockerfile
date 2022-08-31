@@ -5,7 +5,7 @@ COPY ConsoleApp.sln .
 COPY ConsoleApp/ConsoleApp.csproj ./ConsoleApp/
 COPY UnitTestProject/UnitTestProject.csproj ./UnitTestProject/
 RUN dotnet restore
-RUN dotnet publish ConsoleApp/ConsoleApp.sln
+RUN dotnet publish ConsoleApp.sln
 
 # copy csproj and restore as distinct layers
 #COPY ConsoleApp.sln .
