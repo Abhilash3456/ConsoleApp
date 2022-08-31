@@ -12,7 +12,7 @@ RUN dotnet restore
 #COPY ConsoleApp/ConsoleApp.csproj ./ConsoleApp/
 #COPY UnitTestProject/UnitTestProject.csproj ./UnitTestProject/
 #RUN dotnet restore
-RUN dotnet publish ConsoleApp/ConsoleApp.csproj -c Release -o /ConsoleApp/app
+RUN dotnet publish ConsoleApp/ConsoleApp.csproj -c Release -o /source/app
 # copy everything else and build app
 #COPY ConsoleApp/. ./ConsoleApp/
 #WORKDIR /source/ConsoleApp
