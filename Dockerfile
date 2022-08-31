@@ -6,7 +6,7 @@ COPY ConsoleApp/ConsoleApp.csproj ./ConsoleApp/
 COPY UnitTestProject/UnitTestProject.csproj ./UnitTestProject/
 RUN dotnet restore
 #RUN dotnet publish C:\source\ConsoleApp\ConsoleApp.sln
-RUN dotnet publish -o C:\Users\Administrator\AppData\Local\Jenkins\.jenkins\workspace\sample 1\ConsoleApp\bin
+RUN dotnet publish -o ConsoleApp
 # copy csproj and restore as distinct layers
 #COPY ConsoleApp.sln .
 #COPY ConsoleApp/ConsoleApp.csproj ./ConsoleApp/
