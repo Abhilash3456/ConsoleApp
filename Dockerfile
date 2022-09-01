@@ -18,7 +18,7 @@ COPY ConsoleApp/ConsoleApp.csproj ./ConsoleApp/
 COPY UnitTestProject/UnitTestProject.csproj ./UnitTestProject/
 RUN dotnet restore C:\ConsoleApp\ConsoleApp.csproj
 RUN dotnet restore C:\UnitTestProject\UnitTestProject.csproj
-RUN dotnet run --project C:\ConsoleApp\ConsoleApp.csproj
+RUN dotnet build --configuration Release C:\ConsoleApp\ConsoleApp.csproj
 RUN dotnet run --project C:\UnitTestProject\UnitTestProject.csproj
 RUN dotnet publish C:\ConsoleApp\ConsoleApp.csproj
 RUN dotnet publish C:\UnitTestProject\UnitTestProject.csproj
