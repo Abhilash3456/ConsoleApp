@@ -1,5 +1,9 @@
 FROM mcr.microsoft.com/dotnet/sdk:6.0.400 AS build
 WORKDIR /source
+RUN dotnet new -l c#
+RUN dotnet restore -v Information
+RUN dotnet run
+RUN dotnet build
 COPY ConsoleApp.sln .
 COPY ConsoleApp/ConsoleApp.csproj ./ConsoleApp/
 COPY UnitTestProject/UnitTestProject.csproj ./UnitTestProject/
