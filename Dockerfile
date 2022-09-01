@@ -17,7 +17,9 @@ COPY ConsoleApp.sln ./solution/
 COPY ConsoleApp/ConsoleApp.csproj ./ConsoleApp/
 COPY UnitTestProject/UnitTestProject.csproj ./UnitTestProject/
 RUN dir
-RUN dotnet restore
+RUN cd ConsoleApp
+RUN dir
+RUN dotnet restore C:\ConsoleApp\ConsoleApp.sln
 ENTRYPOINT ["dotnet", "ConsoleApp.dll"]
 ENTRYPOINT ["dotnet", "UnitTestProject.dll"]
 WORKDIR /source
