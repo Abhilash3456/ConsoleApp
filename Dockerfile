@@ -10,6 +10,7 @@ COPY --from=build /source ./
 ENTRYPOINT ["dotnet", "ConsoleApp.dll"]
 ENTRYPOINT ["dotnet", "UnitTestProject.dll"]
 FROM mcr.microsoft.com/dotnet/sdk:6.0
+RUN dotnet build --configuration Release ConsoleApp.sln
 RUN dir
 RUN cd Program Files
 RUN dir
