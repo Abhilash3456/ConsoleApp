@@ -13,6 +13,13 @@ RUN dotnet run --project C:\Hello\Hello.csproj
 #RUN cd Hello
 #RUN dir
 RUN dotnet publish C:\Hello\Hello.csproj
+COPY ConsoleApp.sln ./solution/
+COPY ConsoleApp/ConsoleApp.csproj ./ConsoleApp/
+COPY UnitTestProject/UnitTestProject.csproj ./UnitTestProject/
+RUN dir
+RUN dotnet restore
+ENTRYPOINT ["dotnet", "ConsoleApp.dll"]
+ENTRYPOINT ["dotnet", "UnitTestProject.dll"]
 WORKDIR /source
 RUN dotnet new -l c#
 RUN dotnet restore -v Information
