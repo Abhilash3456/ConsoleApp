@@ -4,7 +4,7 @@ COPY ConsoleApp.sln .
 COPY ConsoleApp/ConsoleApp.csproj ./ConsoleApp/
 COPY UnitTestProject/UnitTestProject.csproj ./UnitTestProject/
 RUN dotnet restore
-FROM mcr.microsoft.com/dotnet/aspnet:6.0.400
+FROM mcr.microsoft.com/dotnet/aspnet:6.0
 WORKDIR /ConsoleApp
 COPY --from=build /source ./
 ENTRYPOINT ["dotnet", "ConsoleApp.dll"]
