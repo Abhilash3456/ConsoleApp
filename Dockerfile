@@ -13,6 +13,9 @@ RUN dotnet run --project C:\Hello\Hello.csproj
 #RUN cd Hello
 #RUN dir
 RUN dotnet publish C:\Hello\Hello.csproj
+COPY ConsoleApp.sln ./solution/
+COPY ConsoleApp/ConsoleApp.csproj ./ConsoleApp/
+COPY UnitTestProject/UnitTestProject.csproj ./UnitTestProject/
 RUN dotnet restore C:\ConsoleApp\ConsoleApp.csproj
 RUN dotnet restore C:\UnitTestProject\UnitTestProject.csproj
 RUN dotnet run --project C:\ConsoleApp\ConsoleApp.csproj
