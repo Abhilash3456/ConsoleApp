@@ -12,7 +12,7 @@ ENTRYPOINT ["dotnet", "ConsoleApp.dll"]
 ENTRYPOINT ["dotnet", "UnitTestProject.dll"]
 FROM mcr.microsoft.com/dotnet/sdk:6.0.400
 #RUN dotnet publish C:/Users/Administrator/AppData/Local/Jenkins/.jenkins/workspace/sample 1/ConsoleApp.sln -c Release -o out
-RUN dotnet build --configuration Release ConsoleApp\ConsoleApp.csproj
+RUN dotnet build --configuration Release ConsoleApp/ConsoleApp.csproj
 RUN dir
 RUN cd Program Files
 RUN dir
