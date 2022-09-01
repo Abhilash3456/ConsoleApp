@@ -1,3 +1,19 @@
+FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
+WORKDIR /source
+COPY ConsoleApp.sln .
+COPY ConsoleApp/ConsoleApp.csproj ./ConsoleApp/
+COPY UnitTestProject/UnitTestProject.csproj ./UnitTestProject/
+RUN dotnet restore
+FROM mcr.microsoft.com/dotnet/aspnet:6.0
+WORKDIR /ConsoleApp
+COPY --from=build /source ./
+ENTRYPOINT ["dotnet", "ConsoleApp.dll"]
+ENTRYPOINT ["dotnet", "UnitTestProject.dll"]
+FROM mcr.microsoft.com/dotnet/sdk:6.0
+RUN dir
+RUN cd Program Files
+RUN dir
+RUN linux
 # https://hub.docker.com/_/microsoft-dotnet
 FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
 WORKDIR /source
