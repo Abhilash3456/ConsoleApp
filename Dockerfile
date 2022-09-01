@@ -1,7 +1,7 @@
 FROM mcr.microsoft.com/dotnet/sdk:6.0.400 AS build
 FROM mcr.microsoft.com/dotnet/aspnet:6.0
-RUN curl https://dotnet.microsoft.com/download/dotnet/scripts/v1/dotnet-install.sh
-RUN dotnet --version
+FROM mcr.microsoft.com/dotnet/sdk:6.0.400
+RUN dotnet --help
 RUN mkdir dot
 RUN cd dot
 RUN dotnet new console --name Hello
