@@ -5,6 +5,7 @@ COPY ConsoleApp.sln .
 COPY ConsoleApp/ConsoleApp.csproj ./ConsoleApp/
 COPY UnitTestProject/UnitTestProject.csproj ./UnitTestProject/
 RUN dotnet restore
+RUN dotnet build --configuration Release ConsoleApp.sln
 #RUN dotnet publish C:\source\ConsoleApp\ConsoleApp.sln
 #RUN dotnet publish -o ConsoleApp\ConsoleApp\bin\Debug\netcoreapp3.1\ConsoleApp.exe
 # copy csproj and restore as distinct layers
