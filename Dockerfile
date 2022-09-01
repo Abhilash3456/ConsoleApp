@@ -8,6 +8,7 @@ RUN dotnet new console --name Hello
 RUN dir
 RUN cd Hello
 RUN dotnet run --project C:\Hello\Hello.csproj
+RUN cd dot
 RUN dir
 RUN cd Hello
 RUN dotnet publish
