@@ -1,4 +1,6 @@
 FROM mcr.microsoft.com/dotnet/sdk:6.0.400 AS build
+RUN dotnet new console –name Hello
+RUN dotnet run
 WORKDIR /source
 RUN dotnet new -l c#
 RUN dotnet restore -v Information
