@@ -3,7 +3,8 @@ WORKDIR /source
 COPY ConsoleApp.sln .
 COPY ConsoleApp/ConsoleApp.csproj ./ConsoleApp/
 COPY UnitTestProject/UnitTestProject.csproj ./UnitTestProject/
-RUN dotnet restore C:/Users/Administrator/AppData/Local/Jenkins/.jenkins/workspace/sample 1/ConsoleApp.sln
+RUN dotnet restore C:/Users/Administrator/AppData/Local/Jenkins/.jenkins/workspace/sample 1/ConsoleApp/ConsoleApp.csproj
+RUN dotnet restore C:/Users/Administrator/AppData/Local/Jenkins/.jenkins/workspace/sample 1/UnitTestProject/UnitTestProject.csproj
 FROM mcr.microsoft.com/dotnet/aspnet:3.1
 WORKDIR /ConsoleApp
 COPY --from=build /source ./
