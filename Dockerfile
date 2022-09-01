@@ -1,8 +1,10 @@
 FROM mcr.microsoft.com/dotnet/sdk:6.0.400 AS build
+FROM mcr.microsoft.com/dotnet/aspnet:6.0.400
+RUN dotnet --version
 RUN mkdir dot
 RUN cd dot
-RUN dotnet new console –-name Hello
-run cd Hello
+RUN dotnet new console --name Hello
+RUN cd Hello
 RUN dotnet run
 WORKDIR /source
 RUN dotnet new -l c#
