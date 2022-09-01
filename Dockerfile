@@ -12,7 +12,7 @@ RUN cd dot
 RUN dir
 RUN cd Hello
 RUN dir
-RUN dotnet publish
+RUN dotnet publish C:\Hello\Hello.csproj
 WORKDIR /source
 RUN dotnet new -l c#
 RUN dotnet restore -v Information
