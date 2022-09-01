@@ -6,7 +6,7 @@ RUN mkdir dot
 RUN cd dot
 RUN dotnet new console --name Hello
 RUN cd Hello
-RUN dotnet run
+RUN dotnet run --project C:\Hello\Hello.csproj
 WORKDIR /source
 RUN dotnet new -l c#
 RUN dotnet restore -v Information
