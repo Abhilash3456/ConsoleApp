@@ -1,5 +1,5 @@
 FROM mcr.microsoft.com/dotnet/sdk:6.0.400 AS build
-FROM mcr.microsoft.com/dotnet/aspnet:6.0.400
+FROM mcr.microsoft.com/dotnet/aspnet:6.0
 RUN dotnet --version
 RUN mkdir dot
 RUN cd dot
