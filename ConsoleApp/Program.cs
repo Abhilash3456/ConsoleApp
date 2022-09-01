@@ -4,7 +4,7 @@ namespace ConsoleApp
 {
     public class Program
     {
-        static void Main()
+        public static void Main()
         {
             Console.WriteLine("Hello World! from Thetips4you");
         }
