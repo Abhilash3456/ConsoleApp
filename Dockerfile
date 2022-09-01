@@ -3,15 +3,15 @@ WORKDIR /source
 COPY ConsoleApp.sln .
 COPY ConsoleApp/ConsoleApp.csproj ./ConsoleApp/
 COPY UnitTestProject/UnitTestProject.csproj ./UnitTestProject/
-RUN dotnet restore
+RUN dotnet restore C:/Users/Administrator/AppData/Local/Jenkins/.jenkins/workspace/sample 1/ConsoleApp.sln
 FROM mcr.microsoft.com/dotnet/aspnet:3.1
 WORKDIR /ConsoleApp
 COPY --from=build /source ./
 ENTRYPOINT ["dotnet", "ConsoleApp.dll"]
 ENTRYPOINT ["dotnet", "UnitTestProject.dll"]
 FROM mcr.microsoft.com/dotnet/sdk:6.0.400
-RUN dotnet publish C:/Users/Administrator/AppData/Local/Jenkins/.jenkins/workspace/sample 1/ConsoleApp/ConsoleApp.csproj -c Release -o out
-RUN dotnet build --configuration Release ConsoleApp.sln
+#RUN dotnet publish C:/Users/Administrator/AppData/Local/Jenkins/.jenkins/workspace/sample 1/ConsoleApp.sln -c Release -o out
+RUN dotnet build --configuration Release C:/Users/Administrator/AppData/Local/Jenkins/.jenkins/workspace/sample 1/ConsoleApp.sln
 RUN dir
 RUN cd Program Files
 RUN dir
