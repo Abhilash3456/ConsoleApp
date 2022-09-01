@@ -5,8 +5,10 @@ RUN dotnet --help
 RUN mkdir dot
 RUN cd dot
 RUN dotnet new console --name Hello
+RUN dir
 RUN cd Hello
 RUN dotnet run --project C:\Hello\Hello.csproj
+RUN dir
 RUN dotnet publish --project C:\Hello
 WORKDIR /source
 RUN dotnet new -l c#
