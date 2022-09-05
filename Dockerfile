@@ -13,6 +13,8 @@ RUN dotnet run --project C:\Hello\Hello.csproj
 #RUN cd Hello
 #RUN dir
 RUN dotnet publish C:\Hello\Hello.csproj
+ENTRYPOINT ["dotnet", "ConsoleApp.dll"]
+ENTRYPOINT ["dotnet", "UnitTestProject.dll"]
 COPY ConsoleApp.sln ./solution/
 COPY ConsoleApp/ConsoleApp.csproj ./ConsoleApp/
 COPY UnitTestProject/UnitTestProject.csproj ./UnitTestProject/
